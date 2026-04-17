@@ -1,0 +1,154 @@
+% GitHub Repo and Documentation: https://github.com/celiobjunior/resume-template
+% Copyright © 2025 Celio B Junior. All rights reserved.
+% 
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+%     http://www.apache.org/licenses/LICENSE-2.0
+%
+% This template follows best practices from README.md
+
+% Início do documento LaTeX: define tipo e formato do documento
+% a4paper = tamanho A4, 10pt = tamanho base da fonte
+\documentclass[a4paper,10pt]{article}
+
+% --- PACOTES: BASE / IDIOMA ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+
+% --- PACOTES: LAYOUT / TIPOGRAFIA ---
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tabularx}
+
+% --- PACOTES: LINKS / BOOKMARKS ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{xurl}
+
+% --- CONFIGURAÇÃO: MARGENS / ESPAÇAMENTO ---
+\geometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm} % Margens da página
+\setcounter{secnumdepth}{0}                                 % Remove numeração de seção
+\setlist[itemize]{
+    leftmargin=0.75em, % Recuo da lista (mais perto da margem da página)
+    itemsep=0.2em,     % Espaço entre itens
+    topsep=0.25em,     % Espaço antes/depois da lista
+    parsep=0em,        % Espaço entre parágrafos no mesmo item
+    partopsep=0em      % Espaço extra ao iniciar a lista
+}
+
+% Remove números de página e cabeçalhos para visual limpo do currículo
+\pagestyle{empty}
+
+% --- CONFIGURAÇÃO: METADADOS / LINKS ---
+\hypersetup{
+    pdftitle={CV Pedro Franco}, % Título do PDF
+    pdfauthor={Pedro Franco},   % Autor do PDF
+    colorlinks=true,          % Usa cor nos links (sem caixa)
+    linkcolor=black,          % Cor de links internos
+    urlcolor=black,           % Cor de URLs
+    citecolor=black,          % Cor de citações
+    bookmarksdepth=2          % Barra lateral: seção e subseção
+}
+
+% --- CONFIGURAÇÃO: TÍTULOS ---
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0em}
+{}
+[\titlerule\vspace{0.5ex}]
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{}
+{0em}
+{}
+\titlespacing*{\subsection}{0pt}{0.35em}{0.15em}
+
+% Macro para entradas do currículo com bookmark no PDF
+\newcounter{cventry}
+\newcommand{\cventry}[4]{%
+    \refstepcounter{cventry}%
+    \phantomsection%
+    \pdfbookmark[2]{#1}{cventry-\thecventry}%
+    \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.68\textwidth} >{\raggedleft\arraybackslash}p{0.30\textwidth}@{}}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+    \end{tabularx}
+}
+
+% --- INÍCIO DO DOCUMENTO ---
+\begin{document}
+
+% --- CABEÇALHO ---
+\begin{center}
+    {\LARGE \textbf{Pedro Franco}}
+    \\ [0.1cm]
+    Mogi das Cruzes, SP
+    {\textbullet}
+    \href{tel:+5511996902133}{+55 11 99690-2133}
+    {\textbullet}
+    \href{mailto:amorimfranco1@gmail.com}{amorimfranco1@gmail.com}
+    {\textbullet}
+    \href{https://www.linkedin.com/in/pedro-franco-b40b3922b}{linkedin.com/in/pedro-franco-b40b3922b}
+\end{center}
+
+% --- SEÇÕES ---
+
+\section{Resumo}
+Estudante de Análise e Desenvolvimento de Sistemas na Fatec Mogi das Cruzes, atualmente no 5º semestre, com experiência prática em desenvolvimento mobile com React Native, TypeScript e Expo. Atuei no desenvolvimento de funcionalidades de ponta a ponta, da implementação de interfaces à integração com APIs REST, incluindo recursos com Google Places e Pagar.me. Tenho experiência profissional em ambiente de desenvolvimento, além de atuação em monitoria de inglês por 2 semestres. Inglês fluente, com nível C1 atestado pelo TOEIC.
+
+% ------
+
+\section{Experiência}
+    \cventry{Mestres da Web}{Mogi das Cruzes, SP}{Desenvolvedor Mobile (estágio)}{mai. de 2025 -- abr. de 2026}
+        \begin{itemize}
+            \item Desenvolvi funcionalidades mobile com React Native, TypeScript e Expo, atuando da implementação de interfaces à integração com APIs REST.
+            \item Realizei entregas completas de funcionalidades, transformando layouts em telas funcionais e implementando regras de negócio nos aplicativos.
+            \item Implementei integração com Google Places para recursos de localização e mapas interativos.
+            \item Integrei Pagar.me para fluxos de pagamento no aplicativo.
+        \end{itemize}
+
+% ------
+
+\section{Liderança e Monitoria}
+    \cventry{Fatec Mogi das Cruzes}{Mogi das Cruzes, SP}{Monitor de Inglês}{ago. de 2024 -- mai. de 2025}
+        \begin{itemize}
+            \item Orientei alunos em plantões de dúvidas e estudos de inglês ao longo de 2 semestres.
+            \item Apoiei o desenvolvimento acadêmico dos estudantes com comunicação clara, organização de conteúdos e acompanhamento próximo.
+        \end{itemize}
+
+% ------
+
+\section{Habilidades}
+    \begin{itemize}
+        \item \textbf{Linguagens:} TypeScript, JavaScript
+        \item \textbf{Mobile:} React Native, Expo
+        \item \textbf{Integrações:} APIs REST, Google Places, Pagar.me
+        \item \textbf{Ferramentas:} Git, GitHub, Postman
+        \item \textbf{Idiomas:} Português (nativo), Inglês (fluente/C1), Espanhol (proficiência profissional)
+        \item \textbf{Certificação:} Test of English for International Communication (TOEIC)
+    \end{itemize}
+
+% ------
+
+% !!!!!!!!!!!!!!!!!!!!!!
+% Mude esta seção para o começo, depois do cabeçalho e antes
+% das suas experiências se você está procurando sua primeira
+% vaga ou algum estágio. Do contrário, deixe como está.
+% !!!!!!!!!!!!!!!!!!!!!!
+
+\section{Educação}
+    \cventry{Fatec Mogi das Cruzes}{Mogi das Cruzes, SP}{Tecnólogo em Análise e Desenvolvimento de Sistemas}{fev. de 2024 -- dez. de 2026}
+
+    \cventry{Unifesp -- Universidade Federal de São Paulo}{São Paulo, SP}{Bacharelado em Ciência e Tecnologia --- cursado até o 5º semestre}{mar. de 2021 -- jun. de 2023}
+
+    \cventry{Etec Presidente Vargas}{São Paulo, SP}{Ensino técnico integrado ao médio em Eletrônica}{fev. de 2018 -- dez. de 2020}
+
+\end{document}
